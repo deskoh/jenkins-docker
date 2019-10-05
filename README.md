@@ -17,6 +17,12 @@ docker start jenkins
 docker restart jenkins
 ```
 
+> Jenkins default password will be in console output. Alternatively run
+>
+> ```
+> docker exec jenkins-docker_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword`
+> ```
+
 See [official documentation](https://github.com/jenkinsci/docker/blob/master/README.md) for notes on using `bind mount` for Jenkins home directory.
 
 ## Included Plugins
@@ -54,9 +60,29 @@ uid=1000(jenkins) gid=1000(jenkins) groups=1000(jenkins),0(root)
 
 ```
 
+# Grafana / Prometheus Monitoring
+
+```sh
+# Default grafana user/password: admin/admin
+
+# Linux only
+docker-compose up -d
+
+# Stop running containers
+docker-compose stop
+
+# Remove running containers
+docker-compose rm
+```
+
+* Grafana: http://localhost:3000 (Default user: `admin` / password: `admin`)
+  * Jenkins Grafana Dashboard: https://grafana.com/grafana/dashboards/9524
+* Prometheus: http://localhost:9090
+
 ## Project-based Matrix Authorization Strategy
 
 Authenticated Users to be granted _Overall-Read_ permissions to be able to login and view projects.
 
-## More Information
+## References
 [Official Jenkins Docker image documentation](https://github.com/jenkinsci/docker/blob/master/README.md)
+[Jenkins Pipeline Syntax](https://jenkins.io/doc/book/pipeline/syntax)
