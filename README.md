@@ -21,8 +21,14 @@ See [official documentation](https://github.com/jenkinsci/docker/blob/master/REA
 
 ## Included Plugins
 
+The following opiniated set of recommended plugins is included:
+
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
-* Jenkins Recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
+* [Cobertura](https://plugins.jenkins.io/cobertura)
+* [JUnit](https://plugins.jenkins.io/junit)
+* [Prometheus metrics](https://plugins.jenkins.io/prometheus)
+* [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
+* Default Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
 
 ## Viewing Logs
 

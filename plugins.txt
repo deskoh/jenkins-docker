@@ -1,4 +1,8 @@
 blueocean
+cobertura
+junit
+prometheus
+warnings-ng
 
 # Jenkins Recommended Plugins
 ant
