@@ -19,7 +19,7 @@ docker restart jenkins
 
 > Jenkins default password will be in console output. Alternatively run
 >
-> ```
+> ```sh
 > docker exec jenkins-docker_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword`
 > ```
 
@@ -60,7 +60,9 @@ uid=1000(jenkins) gid=1000(jenkins) groups=1000(jenkins),0(root)
 
 ```
 
-# Adding Worker Node
+## Adding Worker Node
+
+See [agent-docker](https://github.com/deskoh/jenkins-docker/tree/master/agent-docker) for more details.
 
 ```sh
 # `/home/jenkins/agent` and `/home/jenkins/.jenkins` are exposed as volumes
@@ -69,7 +71,7 @@ docker run --network jenkins-docker_default \
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> <worker name>
 ```
 
-# Grafana / Prometheus Monitoring
+## Grafana / Prometheus Monitoring
 
 ```sh
 # Default grafana user/password: admin/admin
@@ -84,14 +86,15 @@ docker-compose stop
 docker-compose rm
 ```
 
-* Grafana: http://localhost:3000 (Default user: `admin` / password: `admin`)
-  * Jenkins Grafana Dashboard: https://grafana.com/grafana/dashboards/9524
-* Prometheus: http://localhost:9090
+* Grafana: [http://localhost:3000](http://localhost:3000) (Default user: `admin` / password: `admin`)
+  * Jenkins Grafana Dashboard: [https://grafana.com/grafana/dashboards/9524](https://grafana.com/grafana/dashboards/9524)
+* Prometheus: [http://localhost:9090](http://localhost:9090)
 
 ## Project-based Matrix Authorization Strategy
 
 Authenticated Users to be granted _Overall-Read_ permissions to be able to login and view projects.
 
 ## References
+
 [Official Jenkins Docker image documentation](https://github.com/jenkinsci/docker/blob/master/README.md)
 [Jenkins Pipeline Syntax](https://jenkins.io/doc/book/pipeline/syntax)
