@@ -60,6 +60,15 @@ uid=1000(jenkins) gid=1000(jenkins) groups=1000(jenkins),0(root)
 
 ```
 
+# Adding Worker Node
+
+```sh
+# `/home/jenkins/agent` and `/home/jenkins/.jenkins` are exposed as volumes
+docker run --network jenkins-docker_default \
+  -v $(pwd)/data/worker:<remote root dir>
+  deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> <worker name>
+```
+
 # Grafana / Prometheus Monitoring
 
 ```sh
