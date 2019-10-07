@@ -1,15 +1,21 @@
 # Jenkins with Docker Build support
 
-Jenkins container supporting docker build using host.
+Jenkins container supporting docker build using host's docker daemon.
 
 ## Usage
 
 ```sh
 # Linux
-docker run --name jenkins --restart=always -d -v $(pwd)/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --name jenkins  deskoh/jenkins-docker
+docker run --name jenkins -p 8080:8080 -p 50000:50000 --restart=always \
+  -v $(pwd)/jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  deskoh/jenkins-docker
 
 # Windows
-docker run --name jenkins --restart=always -d -v %cd%/jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --name jenkins  deskoh/jenkins-docker
+docker run --name jenkins -p 8080:8080 -p 50000:50000 --restart=always ^
+  -v %cd%/jenkins_home:/var/jenkins_home ^
+  -v /var/run/docker.sock:/var/run/docker.sock ^
+  deskoh/jenkins-docker
 
 # Stop / Start / Restart
 docker stop jenkins
@@ -17,17 +23,17 @@ docker start jenkins
 docker restart jenkins
 ```
 
-> Jenkins default password will be in console output. Alternatively run
+> Jenkins default password will be in console output (`stdout`). Alternatively run
 >
 > ```sh
-> docker exec jenkins-docker_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPassword`
+> docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
 > ```
 
 See [official documentation](https://github.com/jenkinsci/docker/blob/master/README.md) for notes on using `bind mount` for Jenkins home directory.
 
 ## Included Plugins
 
-The following opiniated set of recommended plugins is included:
+The following opiniated set of plugins is included:
 
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
@@ -47,7 +53,7 @@ docker logs -f --tail 0 jenkins
 
 The Docker daemon listens on the `/var/run/docker.sock` Unix socket by default and is volume mounted to the Jenkins container. This allows the host Docker to run any Docker commands within the Jenkins container.
 
-The `jenkins` user (`uid 1000`) needs belong to the same group (usually `root`)as `/var/run/docker.sock` on the host container to communicate with the host Docker daemon. See [here](https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf) for more information.
+The `jenkins` user (`uid 1000`) needs belong to the same group (usually `root`) as `/var/run/docker.sock` on the host container to communicate with the host Docker daemon. See [here](https://medium.com/@mccode/understanding-how-uid-and-gid-work-in-docker-containers-c37a01d01cf) for more information.
 
 ```bash
 # To see the owner name and group of `/var/run/docker.sock` on host
@@ -60,18 +66,20 @@ uid=1000(jenkins) gid=1000(jenkins) groups=1000(jenkins),0(root)
 
 ```
 
-## Adding Worker Node
+## Adding Build Agent Nodes
 
-See [agent-docker](https://github.com/deskoh/jenkins-docker/tree/master/agent-docker) for more details.
+See [agent-docker](https://github.com/deskoh/jenkins-docker/tree/master/agent-docker) for more details on adding build agents.
 
 ```sh
-# `/home/jenkins/agent` and `/home/jenkins/.jenkins` are exposed as volumes
+# Assuming Jenkins master is on default `jenkins-docker_default` network
 docker run --network jenkins-docker_default \
   -v $(pwd)/data/worker:<remote root dir>
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> <worker name>
 ```
 
 ## Grafana / Prometheus Monitoring
+
+Using [docker-compose.yml](https://raw.githubusercontent.com/deskoh/jenkins-docker/master/docker-compose.yml).
 
 ```sh
 # Default grafana user/password: admin/admin
@@ -96,5 +104,6 @@ Authenticated Users to be granted _Overall-Read_ permissions to be able to login
 
 ## References
 
-[Official Jenkins Docker image documentation](https://github.com/jenkinsci/docker/blob/master/README.md)
-[Jenkins Pipeline Syntax](https://jenkins.io/doc/book/pipeline/syntax)
+* [Official Jenkins Docker image documentation](https://github.com/jenkinsci/docker/blob/master/README.md)
+
+* [Jenkins Pipeline Syntax](https://jenkins.io/doc/book/pipeline/syntax)

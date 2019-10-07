@@ -1,6 +1,6 @@
 # Jenkins Agent with Docker Build Support
 
-This Jenkins Agent image connects to the Jenkins master. For more information, see [here](https://wiki.jenkins.io/display/JENKINS/Distributed+builds#Distributedbuilds-Agenttomasterconnections).
+This Jenkins Agent image connects to the [Jenkins master](https://hub.docker.com/r/deskoh/jenkins-docker) and supports docker build using host's docker daemon. For more information, see [here](https://wiki.jenkins.io/display/JENKINS/Distributed+builds#Distributedbuilds-Agenttomasterconnections).
 
 ## Quick Start
 
