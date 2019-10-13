@@ -9,6 +9,12 @@ RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${
                  -C /usr/local/bin docker/docker \
   && rm docker-${DOCKERVERSION}.tgz
 
+RUN apt-get update && apt-get install -y \
+    git \
+    maven \
+    nodejs \
+ && rm -rf /var/lib/apt/lists/*
+
 # Add `jenkins` user to `root` group to communicate with host's docker.
 RUN usermod -aG root jenkins
 
