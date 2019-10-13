@@ -1,5 +1,7 @@
 # Jenkins with Docker Build support
 
+[![Get your own image badge on microbadger.com](https://images.microbadger.com/badges/image/deskoh/jenkins-docker.svg)](https://microbadger.com/images/deskoh/jenkins-docker)
+
 Jenkins container supporting docker build using host's docker daemon.
 
 ## Usage
@@ -31,16 +33,28 @@ docker restart jenkins
 
 See [official documentation](https://github.com/jenkinsci/docker/blob/master/README.md) for notes on using `bind mount` for Jenkins home directory.
 
-## Included Plugins
+## Image Variants
+
+The image variants differs by the plugins included.
+
+### `latest`
+
+The default Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json) are included.
+
+### `plugins`
 
 The following opiniated set of plugins is included:
 
+* Default Jenkins recommended plugins (see above).
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
 * [JUnit](https://plugins.jenkins.io/junit)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
-* Default Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
+
+### `no-plugins`
+
+No plugins are included.
 
 ## Viewing Logs
 
