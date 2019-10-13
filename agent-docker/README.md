@@ -15,6 +15,20 @@ Configure Jenkins master by adding a worker node to Jenkins with the following e
 * Labels: `docker` (optional label to denote worker supports docker builds. See [here](https://jenkins.io/doc/book/pipeline/docker/#specifying-a-docker-label).)
 * Launch method: `Launch agent by connecting it to the master`
 
+## Image Variants
+
+### `latest`
+
+The following dependencies are installed
+
+* git
+* maven
+* nodejs
+
+### `base`
+
+Contains no dependencies.
+
 ### Connect to Jenkins Master on existing Docker network
 
 If Jenkins master container is on existing docker network e.g. `jenkins-docker_default` (Default `docker-compose` network),
