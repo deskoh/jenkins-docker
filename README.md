@@ -39,20 +39,20 @@ The image variants differs by the plugins included.
 
 ### `latest`
 
-The default Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json) are included.
-
-### `plugins`
-
 The following opiniated set of plugins is included:
 
-* Default Jenkins recommended plugins (see above).
+* Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
 * [JUnit](https://plugins.jenkins.io/junit)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
 
-### `no-plugins`
+### `plugins`
+
+Only Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json) are included.
+
+### `base`
 
 No plugins are included.
 

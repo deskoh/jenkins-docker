@@ -1,3 +1,4 @@
+# Jenkins Recommended Plugins
 ant
 antisamy-markup-formatter
 build-timeout
@@ -18,3 +19,11 @@ subversion
 timestamper
 workflow-aggregator
 ws-cleanup
+
+# Additional Plugins
+blueocean
+cobertura
+configuration-as-code
+junit
+prometheus
+warnings-ng
