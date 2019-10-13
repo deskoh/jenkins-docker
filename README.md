@@ -48,6 +48,7 @@ The following opiniated set of plugins is included:
 * Default Jenkins recommended plugins (see above).
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
+* [Configuration as Code](https://plugins.jenkins.io/configuration-as-code)
 * [JUnit](https://plugins.jenkins.io/junit)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)

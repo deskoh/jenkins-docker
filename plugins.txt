@@ -1,9 +1,3 @@
-blueocean
-cobertura
-junit
-prometheus
-warnings-ng
-
 # Jenkins Recommended Plugins
 ant
 antisamy-markup-formatter
@@ -25,3 +19,11 @@ subversion
 timestamper
 workflow-aggregator
 ws-cleanup
+
+# Additional Plugins
+blueocean
+cobertura
+configuration-as-code
+junit
+prometheus
+warnings-ng
