@@ -44,7 +44,11 @@ The following opiniated set of plugins is included:
 * Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
+* [File System SCM](https://plugins.jenkins.io/filesystem_scm)
+* [Git Parameter](https://plugins.jenkins.io/git-parameter)
+*[GitLab](https://plugins.jenkins.io/gitlab-plugin)
 * [JUnit](https://plugins.jenkins.io/junit)
+* [Pipeline: Multibranch](https://plugins.jenkins.io/workflow-multibranch)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
 

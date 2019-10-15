@@ -24,6 +24,10 @@ ws-cleanup
 blueocean
 cobertura
 configuration-as-code
+filesystem_scm
+git-parameter
+gitlab-plugin
 junit
 prometheus
 warnings-ng
+workflow-multibranch
