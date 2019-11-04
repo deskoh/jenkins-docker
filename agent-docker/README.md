@@ -11,7 +11,7 @@ Configure Jenkins master by adding a worker node to Jenkins with the following e
 > Note: By default JNLP connects using port 50000 and has to be exposed.
 
 * Name: `worker1`
-* Remote root directory: `/var/jenkins`
+* Remote root directory: `/var/jenkins_home`
 * Labels: `docker` (optional label to denote worker supports docker builds. See [here](https://jenkins.io/doc/book/pipeline/docker/#specifying-a-docker-label).)
 * Launch method: `Launch agent by connecting it to the master`
 
@@ -38,14 +38,16 @@ If Jenkins master container is on existing docker network e.g. `jenkins-docker_d
 
 # Linux
 docker run -d --name=jenkins-agent --network jenkins-docker_default \
+  --group-add `stat -c %g /var/run/docker.sock` \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $(pwd)/data/worker:/var/jenkins \
+  -v $(pwd)/data/worker:/var/jenkins_home \
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> worker1
 
 # Windows
 docker run -d --name=jenkins-agent --network jenkins-docker_default ^
+  --group-add 0 ^
   -v /var/run/docker.sock:/var/run/docker.sock ^
-  -v %cd%/data/worker:/var/jenkins ^
+  -v %cd%/data/worker:/var/jenkins_home ^
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> worker1
 ```
 
@@ -57,13 +59,13 @@ docker run -d --name=jenkins-agent --network jenkins-docker_default ^
 # Linux
 docker run -d --name=jenkins-agent \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $(pwd)/data/worker:/var/jenkins \
+  -v $(pwd)/data/worker:/var/jenkins_home \
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> worker1
 
 # Windows
 docker run -d --name=jenkins-agent ^
   -v /var/run/docker.sock:/var/run/docker.sock ^
-  -v %cd%/data/worker:/var/jenkins ^
+  -v %cd%/data/worker:/var/jenkins_home ^
   deskoh/jenkins-agent-docker -url http://jenkins:8080 <secret> worker1
 ```
 

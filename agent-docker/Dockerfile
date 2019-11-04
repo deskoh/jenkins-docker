@@ -27,7 +27,4 @@ RUN apt-get update && apt-get install -y \
     /usr/lib/node_modules/npm/doc \
     /usr/lib/node_modules/npm/html
 
-# Add `jenkins` user to `root` group to communicate with host's docker.
-RUN usermod -aG root jenkins
-
 USER jenkins
