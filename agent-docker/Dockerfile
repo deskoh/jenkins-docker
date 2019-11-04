@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y \
     git \
     maven \
     nodejs \
- && rm -rf /var/lib/apt/lists/* \
  && npm install -g npm@latest \
+ && rm -rf /var/lib/apt/lists/* \
     /usr/include \
     /usr/share/man \
     /tmp/* \
