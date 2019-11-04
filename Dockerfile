@@ -9,9 +9,6 @@ RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${
                  -C /usr/local/bin docker/docker \
   && rm docker-${DOCKERVERSION}.tgz
 
-# Add `jenkins` user to `root` group to communicate with host's docker.
-RUN usermod -aG root jenkins
-
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh  < /usr/share/jenkins/ref/plugins.txt
 

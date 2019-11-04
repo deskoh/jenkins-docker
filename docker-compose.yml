@@ -2,13 +2,26 @@ version: '3.2'
 services:
   jenkins:
     image: deskoh/jenkins-docker
+    container_name: jenkins-master
     volumes:
       - ./data/jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8080:8080
       - 50000:50000
-  
+
+  # jenkins-agent-1:
+  #   image: deskoh/jenkins-agent-docker
+  #   container_name: jenkins-agent-1
+  #   volumes:
+  #     - ./data/jenkins-agent-1:/var/jenkins_home
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   entrypoint:
+  #     - -url
+  #     - http://jenkins:8080
+  #     - <secret>
+  #     - worker1
+
   prometheus:
     image: prom/prometheus
     volumes:
@@ -16,7 +29,7 @@ services:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - 9090:9090
-  
+
   grafana:
     image: grafana/grafana
     volumes:
