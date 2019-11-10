@@ -123,6 +123,18 @@ docker-compose rm
   * Jenkins Grafana Dashboard: [https://grafana.com/grafana/dashboards/9524](https://grafana.com/grafana/dashboards/9524)
 * Prometheus: [http://localhost:9090](http://localhost:9090)
 
+## Jenkins JVM Tuning
+
+```sh
+# Get PID of Jenkins
+> docker exec jenkins-docker_jenkins_1 jcmd
+7 /usr/share/jenkins/jenkins.war
+
+# Dump Jenkins JVM properties
+> docker exec jenkins-docker_jenkins_1 jcmd 7 VM.system_properties
+> docker exec jenkins-docker_jenkins_1 jcmd 7 VM.flags
+```
+
 ## Project-based Matrix Authorization Strategy
 
 Authenticated Users to be granted _Overall-Read_ permissions to be able to login and view projects.
