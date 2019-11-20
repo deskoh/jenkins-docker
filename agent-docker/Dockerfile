@@ -27,8 +27,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     /usr/lib/node_modules/npm/doc \
     /usr/lib/node_modules/npm/html
 
-RUN if [[ -n $NPM_REGISTRY ]]; then npm config set registry $NPM_REGISTRY; fi \
-  && if [[ -n $SASS_BINARY_SITE ]]; then npm config set SASS_BINARY_SITE $SASS_BINARY_SITE; fi \
-  && if [[ -n $ELECTRON_MIRROR ]]; then npm config set ELECTRON_MIRROR $ELECTRON_MIRROR; fi
+RUN if [ -n "$NPM_REGISTRY" ]; then npm config set registry $NPM_REGISTRY; fi \
+  && if [ -n "$SASS_BINARY_SITE" ]; then npm config set SASS_BINARY_SITE $SASS_BINARY_SITE; fi \
+  && if [ -n "$ELECTRON_MIRROR" ]; then npm config set ELECTRON_MIRROR $ELECTRON_MIRROR; fi
 
 USER jenkins
