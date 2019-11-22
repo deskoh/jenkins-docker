@@ -40,8 +40,4 @@ RUN cd /opt \
 
 RUN pip install lizard
 
-RUN if [ -n "$NPM_REGISTRY" ]; then npm config set registry $NPM_REGISTRY; fi \
-  && if [ -n "$SASS_BINARY_SITE" ]; then npm config set SASS_BINARY_SITE $SASS_BINARY_SITE; fi \
-  && if [ -n "$ELECTRON_MIRROR" ]; then npm config set ELECTRON_MIRROR $ELECTRON_MIRROR; fi
-
 USER jenkins
