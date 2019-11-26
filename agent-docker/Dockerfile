@@ -1,4 +1,4 @@
-jjFROM ubuntu:19.10
+FROM ubuntu:19.10
 
 ARG VERSION=3.35
 ARG user=jenkins
@@ -12,35 +12,63 @@ LABEL Description="This is a base image, which provides the Jenkins agent execut
 
 ARG AGENT_WORKDIR=/home/${user}/agent
 
-RUN apt-get update && apt-get install -y \
-  git-lfs curl wget > /dev/null 2>&1
+# Install utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+     ca-certificates curl netbase wget unzip > /dev/null 2>&1 \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install source control utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+     bzr git git-lfs openssh-client subversion > /dev/null 2>&1 \
+  && rm -rf /var/lib/apt/lists/*
+
+# Install jdk and java build tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+     openjdk-8-jdk maven gradle > /dev/null 2>&1 \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/agent.jar \
   && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar
 
-# Install docker CLI only
 # RUN curl -sSL https://get.docker.com/ | sh
+# Install docker CLI only
 ARG DOCKERVERSION=19.03.5
 RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
   && tar xzvf docker-${DOCKERVERSION}.tgz --strip 1 \
                  -C /usr/local/bin docker/docker \
   && rm docker-${DOCKERVERSION}.tgz
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-
 ENV DEBIAN_FRONTEND=noninteractive
-RUN ln -fs /usr/share/zoneinfo/Asia/Singapore /etc/localtime
 
-# Additional build and dev tools
+# Install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+  && apt-get install -y --no-install-recommends nodejs  > /dev/null 2>&1 \
+  && npm install -g npm@latest \
+  && rm -rf /var/lib/apt/lists/* \
+    /root/.npm \
+    /usr/lib/node_modules/npm/man \
+    /usr/lib/node_modules/npm/docs
+
+# Install static anaylsis tools
+RUN cd /opt \
+   && wget -nv http://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
+   && tar xzf spotbugs-3.1.12.tgz \
+   && rm spotbugs-3.1.12.tgz \
+   && wget -nv https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip \
+   && unzip -q pmd-bin-6.19.0.zip \
+   && rm pmd-bin-6.19.0.zip \
+   && rm -rf /var/lib/apt/lists/*
+
+# Additional build tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
     socat \
-    python-pip \    
+    python-pip \
     ksh \
     # build tools
     build-essential \
-    maven nodejs \
+    g++ \
     cppcheck \
     lynx \
     clang-format clang-tidy clang-tools clang clangd \
@@ -50,29 +78,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     valgrind \
     expect \
  > /dev/null 2>&1 \
- && dpkg-reconfigure --frontend noninteractive tzdata \
- && npm install -g npm@latest \
+ && pip install lizard \
  && rm -rf /var/lib/apt/lists/* \
     /usr/share/man \
-    /tmp/* \
-    /root/.npm \
-    /usr/lib/node_modules/npm/man \
-    /usr/lib/node_modules/npm/docs
-    # /usr/lib/node_modules/npm/html
-
-RUN cd /opt \
-   && wget -nv http://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
-   && tar xzf spotbugs-3.1.12.tgz \
-   && rm spotbugs-3.1.12.tgz
-
-RUN cd /opt \
-   && wget -nv https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip \
-   && unzip -q pmd-bin-6.19.0.zip \
-   && rm pmd-bin-6.19.0.zip
-
-RUN pip install lizard
+    /tmp/*
 
 # End install
+
+# # Configure tzdata
+# RUN ln -fs /usr/share/zoneinfo/Asia/Singapore /etc/localtime \
+#     && dpkg-reconfigure --frontend noninteractive tzdata
 
 USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
