@@ -25,6 +25,16 @@ The following dependencies are installed
 * maven
 * nodejs
 
+### `ubuntu`
+
+Built using `ubuntu` base image with opiniated set of build tools.
+
+Reference:
+
+* [jenkinsci/docker-slave](https://github.com/jenkinsci/docker-slave)
+
+* [jenkinsci/docker-jnlp-slave](https://github.com/jenkinsci/docker-jnlp-slave/)
+
 ### `base`
 
 Contains no dependencies.
