@@ -51,4 +51,10 @@ RUN cd /opt \
 
 RUN pip install lizard
 
+COPY jenkins-agent /usr/local/bin/jenkins-agent
+RUN chmod +x /usr/local/bin/jenkins-agent &&\
+    ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave
+
 USER jenkins
+
+ENTRYPOINT ["jenkins-agent"]
