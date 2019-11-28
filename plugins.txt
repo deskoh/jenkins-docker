@@ -24,6 +24,7 @@ ws-cleanup
 blueocean
 cobertura
 configuration-as-code
+docker-plugin
 filesystem_scm
 git-parameter
 gitlab-plugin

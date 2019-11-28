@@ -46,6 +46,7 @@ The following opiniated set of plugins is included:
 * Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
+* [Docker](https://plugins.jenkins.io/docker-plugin)
 * [File System SCM](https://plugins.jenkins.io/filesystem_scm)
 * [Git Parameter](https://plugins.jenkins.io/git-parameter)
 * [GitLab](https://plugins.jenkins.io/gitlab-plugin)
