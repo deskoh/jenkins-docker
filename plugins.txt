@@ -32,3 +32,6 @@ junit
 prometheus
 warnings-ng
 workflow-multibranch
+fortify
+kubernetes-credentials
+kubernetes-cli
