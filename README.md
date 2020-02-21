@@ -57,6 +57,7 @@ The following opiniated set of plugins is included:
 * [Kubernetes Credentials](https://plugins.jenkins.io/kubernetes-credentials)
 * [Pipeline: Multibranch](https://plugins.jenkins.io/workflow-multibranch)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
+* [RocketChat Notifier](https://plugins.jenkins.io/rocketchatnotifier/)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
 * [xUnit](https://plugins.jenkins.io/xUnit)
 
