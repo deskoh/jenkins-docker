@@ -25,9 +25,12 @@ blueocean
 cobertura
 configuration-as-code
 filesystem_scm
+fortify
 git-parameter
 gitlab-plugin
 junit
+kubernetes-cli
+kubernetes-credentials
 prometheus
 warnings-ng
 workflow-multibranch
