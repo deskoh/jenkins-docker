@@ -40,7 +40,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     > /dev/null 2>&1
 
 RUN cd /opt \
-   && wget -nv http://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
+   && wget -nv https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
    && tar xzf spotbugs-3.1.12.tgz \
    && rm spotbugs-3.1.12.tgz
 
