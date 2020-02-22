@@ -53,7 +53,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 # Install static anaylsis tools
 RUN cd /opt \
-   && wget -nv http://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
+   && wget -nv https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
    && tar xzf spotbugs-3.1.12.tgz \
    && rm spotbugs-3.1.12.tgz \
    && wget -nv https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip \
