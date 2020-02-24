@@ -23,6 +23,7 @@ ws-cleanup
 # Additional Plugins
 blueocean
 cobertura
+cpptest
 configuration-as-code
 filesystem_scm
 fortify
@@ -32,5 +33,7 @@ junit
 kubernetes-cli
 kubernetes-credentials
 prometheus
+rocketchatnotifier
 warnings-ng
 workflow-multibranch
+xUnit
