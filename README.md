@@ -58,6 +58,7 @@ The following opiniated set of plugins is included:
 * [Pipeline: Multibranch](https://plugins.jenkins.io/workflow-multibranch)
 * [Prometheus metrics](https://plugins.jenkins.io/prometheus)
 * [RocketChat Notifier](https://plugins.jenkins.io/rocketchatnotifier/)
+* [Templating Engine](https://plugins.jenkins.io/templating-engine/)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
 * [xUnit](https://plugins.jenkins.io/xUnit)
 

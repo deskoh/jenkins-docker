@@ -31,6 +31,7 @@ fortify
 git-parameter
 gitlab-plugin
 junit
+templating-engine
 kubernetes-cli
 kubernetes-credentials
 prometheus
