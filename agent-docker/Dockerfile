@@ -34,7 +34,7 @@ RUN curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-
 
 # RUN curl -sSL https://get.docker.com/ | sh
 # Install docker CLI only
-ARG DOCKERVERSION=19.03.5
+ARG DOCKERVERSION=20.10.1
 RUN curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
   && tar xzvf docker-${DOCKERVERSION}.tgz --strip 1 \
                  -C /usr/local/bin docker/docker \
@@ -53,12 +53,12 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 # Install static anaylsis tools
 RUN cd /opt \
-   && wget -nv https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz \
-   && tar xzf spotbugs-3.1.12.tgz \
-   && rm spotbugs-3.1.12.tgz \
-   && wget -nv https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.19.0/pmd-bin-6.19.0.zip \
-   && unzip -q pmd-bin-6.19.0.zip \
-   && rm pmd-bin-6.19.0.zip \
+   && wget -nv https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.1.4/spotbugs-4.1.4.tgz \
+   && tar xzf spotbugs-4.1.4.tgz \
+   && rm spotbugs-4.1.4.tgz \
+   && wget -nv https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.30.0/pmd-bin-6.30.0.zip \
+   && unzip -q pmd-bin-6.30.0.zip \
+   && rm pmd-bin-6.30.0.zip \
    && rm -rf /var/lib/apt/lists/*
 
 # Additional build tools
