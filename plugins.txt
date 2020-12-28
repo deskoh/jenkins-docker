@@ -23,7 +23,6 @@ ws-cleanup
 # Additional Plugins
 blueocean
 cobertura
-cpptest
 configuration-as-code
 filesystem_scm
 fortify
