@@ -31,6 +31,7 @@ fortify
 git-parameter
 gitlab-plugin
 junit
+http_request
 templating-engine
 kubernetes-cli
 kubernetes-credentials
