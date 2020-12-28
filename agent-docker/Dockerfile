@@ -1,6 +1,6 @@
-FROM ubuntu:19.10
+FROM ubuntu:20.04
 
-ARG VERSION=3.35
+ARG VERSION=4.6
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
