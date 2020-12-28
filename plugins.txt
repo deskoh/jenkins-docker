@@ -23,7 +23,6 @@ ws-cleanup
 # Additional Plugins
 blueocean
 cobertura
-cpptest
 configuration-as-code
 docker-plugin
 filesystem_scm
