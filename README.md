@@ -44,6 +44,7 @@ The image variants differs by the plugins included.
 The following opiniated set of plugins is included:
 
 * Jenkins recommended plugins referenced [here](https://github.com/jenkinsci/jenkins/blob/master/core/src/main/resources/jenkins/install/platform-plugins.json).
+* [Artifactory](https://plugins.jenkins.io/artifactory/)
 * [Blue Ocean](https://plugins.jenkins.io/blueocean)
 * [Cobertura](https://plugins.jenkins.io/cobertura)
 * [Docker](https://plugins.jenkins.io/docker-plugin)

@@ -21,6 +21,7 @@ workflow-aggregator
 ws-cleanup
 
 # Additional Plugins
+artifactory
 blueocean
 cobertura
 configuration-as-code
