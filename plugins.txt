@@ -35,6 +35,7 @@ http_request
 templating-engine
 kubernetes-cli
 kubernetes-credentials
+pipeline-utility-steps
 prometheus
 rocketchatnotifier
 warnings-ng
