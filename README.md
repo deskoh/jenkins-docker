@@ -62,6 +62,7 @@ The following opiniated set of plugins is included:
 * [Templating Engine](https://plugins.jenkins.io/templating-engine/)
 * [Warnings Next Generation](https://github.com/jenkinsci/warnings-ng-plugin)
 * [xUnit](https://plugins.jenkins.io/xUnit)
+* [pipeline-utility-steps](https://plugins.jenkins.io/pipeline-utility-steps/)
 
 ### `plugins`
 
