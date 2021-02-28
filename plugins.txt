@@ -37,6 +37,7 @@ kubernetes-cli
 kubernetes-credentials
 pipeline-utility-steps
 prometheus
+robot
 rocketchatnotifier
 warnings-ng
 workflow-multibranch
