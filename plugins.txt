@@ -30,6 +30,7 @@ filesystem_scm
 fortify
 git-parameter
 gitlab-plugin
+jacoco
 junit
 http_request
 templating-engine
@@ -40,4 +41,3 @@ rocketchatnotifier
 warnings-ng
 workflow-multibranch
 xunit
-jacoco
