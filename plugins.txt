@@ -30,6 +30,7 @@ filesystem_scm
 fortify
 git-parameter
 gitlab-plugin
+jacoco
 junit
 http_request
 templating-engine

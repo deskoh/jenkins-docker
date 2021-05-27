@@ -53,6 +53,7 @@ The following opiniated set of plugins is included:
 * [Git Parameter](https://plugins.jenkins.io/git-parameter)
 * [GitLab](https://plugins.jenkins.io/gitlab-plugin)
 * [HTTP Request](https://plugins.jenkins.io/http_request/)
+* [JaCoCo](https://plugins.jenkins.io/jacoco/)
 * [JUnit](https://plugins.jenkins.io/junit)
 * [Kubernetes CLI](https://plugins.jenkins.io/kubernetes-cli)
 * [Kubernetes Credentials](https://plugins.jenkins.io/kubernetes-credentials)
