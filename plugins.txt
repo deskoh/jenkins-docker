@@ -40,3 +40,4 @@ rocketchatnotifier
 warnings-ng
 workflow-multibranch
 xunit
+jacoco
